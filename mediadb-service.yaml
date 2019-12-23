@@ -9,6 +9,7 @@ metadata:
     io.kompose.service: mediadb
   name: mediadb
 spec:
+  type: LoadBalancer
   ports:
   - name: "27020"
     port: 27020

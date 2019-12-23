@@ -9,6 +9,7 @@ metadata:
     io.kompose.service: media
   name: media
 spec:
+  type: LoadBalancer
   ports:
   - name: "2225"
     port: 2225
