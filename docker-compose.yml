@@ -42,6 +42,28 @@ services:
       - '3308'
     ports:
       - '3308:3306'
+  ticketdb:
+    image: mysql:5.7
+    container_name: 'ticketdb'
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ticketdb
+    expose:
+      - "3307"
+    ports:
+      - '3307:3306'
+  halldb:
+    image: 'mongo'
+    container_name: 'halldb'
+    environment:
+      # provide your credentials here
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+    volumes:
+      - mongo-volume:/data/db
+    ports:
+      - '27017:27017'
 
   media:
     container_name: 'media'
@@ -61,3 +83,42 @@ services:
       - media
     ports:
       - "3000:3000"
+  schedule:
+    container_name: 'schedule'
+    image: 'docker.io/emielvandenbussche/schedule'
+    links:
+      - scheduledb
+      - kafkabroker
+      - zookeeper
+    depends_on:
+      - scheduledb
+      - kafkabroker
+      - zookeeper
+    ports:
+      - "2223:2223"
+  hall:
+    container_name: 'hall'
+    image: 'docker.io/emielvandenbussche/hall'
+    links:
+      - halldb
+      - kafkabroker
+      - zookeeper
+    depends_on:
+      - halldb
+      - kafkabroker
+      - zookeeper
+    ports:
+      - "2221:2221"
+  ticket:
+    container_name: 'ticket'
+    image: 'docker.io/emielvandenbussche/ticket'
+    links:
+      - ticketdb
+      - kafkabroker
+      - zookeeper
+    depends_on:
+      - ticketdb
+      - kafkabroker
+      - zookeeper
+    ports:
+      - "2222:2222"
