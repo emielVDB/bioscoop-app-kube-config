@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: statistics
+  name: statistics
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: statistics
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        service: statistics
+    spec:
+      containers:
+      - image: docker.io/emielvandenbussche/statistics:1.0
+        name: statistics
+        ports:
+        - containerPort: 2228
+        resources: {}
+      restartPolicy: Always
+status: {}

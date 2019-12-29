@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: advertisementdb
+  name: advertisementdb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: advertisementdb
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        service: advertisementdb
+    spec:
+      containers:
+      - args:
+          - --default-authentication-plugin=mysql_native_password
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: root
+        - name: MYSQL_DATABASE
+          value: advertisementdb
+        image: mysql:5.7
+        name: advertisementdb
+        ports:
+        - containerPort: 3306
+        resources: {}
+      restartPolicy: Always
+status: {}

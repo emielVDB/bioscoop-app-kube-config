@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: advertisement
+  name: advertisement
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: advertisement
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        service: advertisement
+    spec:
+      containers:
+      - image: docker.io/emielvandenbussche/advertisement:1.0
+        name: advertisement
+        ports:
+        - containerPort: 2226
+        resources: {}
+      restartPolicy: Always
+status: {}
