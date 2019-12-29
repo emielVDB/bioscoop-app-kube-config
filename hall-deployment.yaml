@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: hall
+  name: hall
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: hall
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        service: hall
+    spec:
+      containers:
+      - image: docker.io/emielvandenbussche/hall
+        name: hall
+        ports:
+        - containerPort: 2221
+        resources: {}
+      restartPolicy: Always
+status: {}

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: halldb
+  name: halldb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: halldb
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        service: halldb
+    spec:
+      containers:
+      - env:
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          value: root
+        - name: MONGO_INITDB_ROOT_USERNAME
+          value: root
+        image: mongo
+        name: halldb
+        ports:
+        - containerPort: 27017
+        resources: {}
+      restartPolicy: Always
+status: {}

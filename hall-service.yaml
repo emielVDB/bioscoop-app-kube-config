@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: hall
+  name: hall
+spec:
+  ports:
+  - name: "2221"
+    port: 2221
+    targetPort: 2221
+  selector:
+    service: hall
+status:
+  loadBalancer: {}
