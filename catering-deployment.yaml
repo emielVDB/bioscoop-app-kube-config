@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: catering
+  name: catering
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: catering
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        service: catering
+    spec:
+      containers:
+      - image: docker.io/emielvandenbussche/catering:1.0
+        name: catering
+        ports:
+        - containerPort: 2227
+        resources: {}
+      restartPolicy: Always
+status: {}

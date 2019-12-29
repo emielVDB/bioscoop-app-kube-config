@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: catering
+  name: catering
+spec:
+  ports:
+  - name: "2227"
+    port: 2227
+    targetPort: 2227
+  selector:
+    service: catering
+status:
+  loadBalancer: {}

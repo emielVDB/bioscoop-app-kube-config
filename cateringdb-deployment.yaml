@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: cateringdb
+  name: cateringdb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: cateringdb
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        service: cateringdb
+    spec:
+      containers:
+      - args:
+          - --default-authentication-plugin=mysql_native_password
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: root
+        - name: MYSQL_DATABASE
+          value: cateringdb
+        image: mysql:5.7
+        name: cateringdb
+        ports:
+        - containerPort: 3306
+        resources: {}
+      restartPolicy: Always
+status: {}
