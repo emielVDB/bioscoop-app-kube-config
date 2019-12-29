@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: schedule
+  name: schedule
+spec:
+  ports:
+  - name: "2223"
+    port: 2223
+    targetPort: 2223
+  selector:
+    service: schedule
+status:
+  loadBalancer: {}

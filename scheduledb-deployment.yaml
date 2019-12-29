@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: scheduledb
+  name: scheduledb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: scheduledb
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        service: scheduledb
+    spec:
+      containers:
+      - env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: root
+        - name: MYSQL_DATABASE
+          value: scheduledb
+        image: mysql:5.7
+        name: scheduledb
+        ports:
+        - containerPort: 3306
+        resources: {}
+      restartPolicy: Always
+status: {}

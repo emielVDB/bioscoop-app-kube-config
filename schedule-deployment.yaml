@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: schedule
+  name: schedule
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: schedule
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        service: schedule
+    spec:
+      containers:
+      - image: docker.io/emielvandenbussche/schedule
+        name: schedule
+        ports:
+        - containerPort: 2223
+        resources: {}
+      restartPolicy: Always
+status: {}
