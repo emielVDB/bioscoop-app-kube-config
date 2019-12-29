@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: ticket
+  name: ticket
+spec:
+  ports:
+  - name: "2222"
+    port: 2222
+    targetPort: 2222
+  selector:
+    service: ticket
+status:
+  loadBalancer: {}

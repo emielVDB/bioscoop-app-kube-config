@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: ticketdb
+  name: ticketdb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: ticketdb
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        service: ticketdb
+    spec:
+      containers:
+      - args:
+          - --default-authentication-plugin=mysql_native_password
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: root
+        - name: MYSQL_DATABASE
+          value: ticketdb
+        image: mysql:5.7
+        name: ticketdb
+        ports:
+        - containerPort: 3306
+        resources: {}
+      restartPolicy: Always
+status: {}

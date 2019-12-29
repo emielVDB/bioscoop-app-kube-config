@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: ticket
+  name: ticket
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: ticket
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        service: ticket
+    spec:
+      containers:
+      - image: docker.io/emielvandenbussche/ticket
+        name: ticket
+        ports:
+        - containerPort: 2222
+        resources: {}
+      restartPolicy: Always
+status: {}
