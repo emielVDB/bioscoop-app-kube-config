@@ -20,7 +20,7 @@ spec:
       - image: docker.io/emielvandenbussche/gateway
         name: gateway
         ports:
-        - containerPort: 2225
+        - containerPort: 3000
         resources: {}
       restartPolicy: Always
 status: {}

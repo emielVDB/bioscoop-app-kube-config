@@ -6,9 +6,9 @@ metadata:
   name: gateway
 spec:
   ports:
-  - name: "2225"
-    port: 2225
-    targetPort: 2225
+  - name: "3000"
+    port: 3000
+    targetPort: 3000
   selector:
     service: gateway
 status:
