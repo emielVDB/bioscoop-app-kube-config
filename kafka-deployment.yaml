@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     service: kafka
-  name: kafka
+  name: kafkadeploy
 spec:
   replicas: 1
   selector:
@@ -28,7 +28,7 @@ spec:
           value: "1"
 
         image: confluentinc/cp-kafka
-        name: kafka
+        name: kafkadeploy
         ports:
         - containerPort: 9092
         resources: {}
