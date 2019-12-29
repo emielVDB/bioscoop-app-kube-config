@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: staffdb
+  name: staffdb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: staffdb
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        service: staffdb
+    spec:
+      containers:
+      - args:
+          - --default-authentication-plugin=mysql_native_password
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: root
+        - name: MYSQL_DATABASE
+          value: staffdb
+        image: mysql:5.7
+        name: staffdb
+        ports:
+        - containerPort: 3306
+        resources: {}
+      restartPolicy: Always
+status: {}

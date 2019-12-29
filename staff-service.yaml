@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: staff
+  name: staff
+spec:
+  ports:
+  - name: "2224"
+    port: 2224
+    targetPort: 2224
+  selector:
+    service: staff
+status:
+  loadBalancer: {}

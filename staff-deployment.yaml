@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: staff
+  name: staff
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: staff
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        service: staff
+    spec:
+      containers:
+      - image: docker.io/emielvandenbussche/staff:1.0
+        name: staff
+        ports:
+        - containerPort: 2224
+        resources: {}
+      restartPolicy: Always
+status: {}
