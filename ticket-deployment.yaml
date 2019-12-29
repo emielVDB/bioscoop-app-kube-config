@@ -17,7 +17,7 @@ spec:
         service: ticket
     spec:
       containers:
-      - image: docker.io/emielvandenbussche/ticket
+      - image: docker.io/emielvandenbussche/ticket:1.0
         name: ticket
         ports:
         - containerPort: 2222

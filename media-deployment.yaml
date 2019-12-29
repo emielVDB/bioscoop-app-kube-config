@@ -17,7 +17,7 @@ spec:
         service: media
     spec:
       containers:
-      - image: docker.io/emielvandenbussche/media
+      - image: docker.io/emielvandenbussche/media:1.0
         name: media
         ports:
         - containerPort: 2225

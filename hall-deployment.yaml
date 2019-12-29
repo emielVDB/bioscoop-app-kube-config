@@ -17,7 +17,7 @@ spec:
         service: hall
     spec:
       containers:
-      - image: docker.io/emielvandenbussche/hall
+      - image: docker.io/emielvandenbussche/hall:1.0
         name: hall
         ports:
         - containerPort: 2221

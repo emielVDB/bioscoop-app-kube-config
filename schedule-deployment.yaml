@@ -17,7 +17,7 @@ spec:
         service: schedule
     spec:
       containers:
-      - image: docker.io/emielvandenbussche/schedule
+      - image: docker.io/emielvandenbussche/schedule:1.0
         name: schedule
         ports:
         - containerPort: 2223
