@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: gateway
+  name: gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: gateway
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        service: gateway
+    spec:
+      containers:
+      - image: docker.io/emielvandenbussche/gateway
+        name: gateway
+        ports:
+        - containerPort: 2225
+        resources: {}
+      restartPolicy: Always
+status: {}
