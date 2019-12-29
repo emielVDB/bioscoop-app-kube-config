@@ -1,20 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.16.0 (0c01309)
-  creationTimestamp: null
   labels:
-    io.kompose.service: mediadb
+    service: mediadb
   name: mediadb
 spec:
-  type: LoadBalancer
   ports:
-  - name: "27020"
-    port: 27020
+  - name: "27017"
+    port: 27017
     targetPort: 27017
   selector:
-    io.kompose.service: mediadb
+    service: mediadb
 status:
   loadBalancer: {}
