@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - env:
-            - name: ZOOKEEPER_CLIENT_PORT
+            - name: MONGO_INITDB_ROOT_PASSWORD
               value: 2181
           image: confluentinc/cp-zookeeper
           name: zookeeper
