@@ -1,5 +1,26 @@
 version: '3'
 services:
+  zookeeper:
+    container_name: 'zookeper'
+    image: confluentinc/cp-zookeeper
+    environment:
+      - ZOOKEEPER_CLIENT_PORT=2181
+    ports:
+      - "2181:2181"
+
+  kafka:
+    container_name: 'kafka'
+    image: confluentinc/cp-kafka
+    depends_on:
+      - zookeeper
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
+      - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
+    ports:
+      - "9092:9092"
+
   mediadb:
     image: 'mongo'
     container_name: 'media_mongo_db'
@@ -20,3 +41,12 @@ services:
       - mediadb
     ports:
       - "2225:2225"
+  gateway:
+    container_name: 'gateway'
+    image: 'docker.io/emielvandenbussche/gateway'
+    links:
+      - media
+    depends_on:
+      - media
+    ports:
+      - "3000:3000"
