@@ -22,10 +22,10 @@ spec:
               value: root
             - name: MONGO_INITDB_ROOT_USERNAME
               value: root
-          image: mongo
+          image: confluentinc/cp-zookeeper
           name: zookeeper
           ports:
-            - containerPort: 27017
+            - containerPort: 2181
           resources: {}
       restartPolicy: Always
 status: {}
