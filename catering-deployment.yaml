@@ -17,7 +17,7 @@ spec:
         service: catering
     spec:
       containers:
-      - image: docker.io/emielvandenbussche/catering:1.0
+      - image: docker.io/emielvandenbussche/catering:2.0
         name: catering
         ports:
         - containerPort: 2227

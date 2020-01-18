@@ -17,7 +17,7 @@ spec:
         service: statistics
     spec:
       containers:
-      - image: docker.io/emielvandenbussche/statistics:1.0
+      - image: docker.io/emielvandenbussche/statistics:2.0
         name: statistics
         ports:
         - containerPort: 2228

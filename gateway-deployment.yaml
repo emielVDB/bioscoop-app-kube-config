@@ -17,7 +17,7 @@ spec:
         service: gateway
     spec:
       containers:
-      - image: docker.io/emielvandenbussche/gateway:1.0
+      - image: docker.io/emielvandenbussche/gateway:2.0
         name: gateway
         ports:
         - containerPort: 3000

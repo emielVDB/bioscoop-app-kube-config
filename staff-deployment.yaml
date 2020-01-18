@@ -17,7 +17,7 @@ spec:
         service: staff
     spec:
       containers:
-      - image: docker.io/emielvandenbussche/staff:1.0
+      - image: docker.io/emielvandenbussche/staff:2.0
         name: staff
         ports:
         - containerPort: 2224
