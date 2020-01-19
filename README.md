@@ -14,5 +14,5 @@ Voor elke services werden telkens 2 yaml configuratie bestanden aangemaakt.
 - deployment
 
 Ssh tunnels leggen om te testen:
--er moet een ssh tunnel gelegd worden naar onze frond end service remote poort is 80.
--en een ssh tunnel naar de gateway service, lokale poort en remote poort moeten beiden 3000 zijn.
+1) er moet een ssh tunnel gelegd worden naar onze frond-end service, remote poort is 80.
+2) en een ssh tunnel naar de gateway service, lokale poort en remote poort moeten beiden 3000 zijn.
