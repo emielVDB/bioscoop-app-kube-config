@@ -10,6 +10,7 @@ kubectl apply -f staff-deployment.yaml
 kubectl apply -f catering-deployment.yaml
 kubectl apply -f statistics-deployment.yaml
 kubectl apply -f advertisement-deployment.yaml
+kubectl apply -f frontend-deployment.yaml
 
 
 kubectl get rs
