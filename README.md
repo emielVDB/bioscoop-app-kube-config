@@ -2,7 +2,7 @@
 
 Flow voor het deployen van de services in de kubernetes cluster
 1) images pushen naar publieke reposity op docker hub ( emielvandenbussche)
-2) stap 2 yaml aanmaken of aanpassen ( bijvoorbeeld image versie aanpassen)
+2) yaml aanmaken of aanpassen ( bijvoorbeeld image versie aanpassen)
 3) yaml bestandjes pushen op git.
 4) yaml bestandjes pullen op de master node
 5) yaml bestandjes applyen op de master node
