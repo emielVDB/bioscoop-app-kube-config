@@ -9,7 +9,7 @@ Flow voor het deployen van de services in de kubernetes cluster
 
 bij updates van functionaliteiten van de services werden stap 4 en 5 eenvoudig gemaakt door het bestandje updateDeployment.sh
 
-Voor elke services werden telkens 2 yaml configuratie bestanden aangemaakt.
+Per service werden telkens 2 yaml configuratie bestanden aangemaakt.
 - service
 - deployment
 
