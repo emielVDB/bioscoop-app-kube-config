@@ -2,25 +2,25 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    service: schedule
-  name: schedule
+    service: frontend
+  name: frontend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      service: schedule
+      service: frontend
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        service: schedule
+        service: frontend
     spec:
       containers:
-      - image: docker.io/emielvandenbussche/schedule:2.0
-        name: schedule
+      - image: docker.io/emielvandenbussche/frontend:1.0
+        name: frontend
         ports:
-        - containerPort: 2223
+        - containerPort: 80
         resources: {}
       restartPolicy: Always
 status: {}
